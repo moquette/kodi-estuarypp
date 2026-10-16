@@ -197,7 +197,10 @@ def main() -> int:
             sys.exit(f"NOT reproducible: {digest} != {digest2}")
         print("reproducible: two builds are byte-identical")
 
-    print(f"{out.relative_to(ROOT)}  {len(files)} files  {out.stat().st_size} bytes")
+    # --out may point outside the repo (a bench directory), where
+    # relative_to raises after the zip is already written.
+    shown = out.relative_to(ROOT) if out.is_relative_to(ROOT) else out
+    print(f"{shown}  {len(files)} files  {out.stat().st_size} bytes")
     print(f"sha256 {digest}")
     return 0
 
