@@ -81,7 +81,7 @@ def test_the_skin_does_not_declare_the_tvos_addon():
        Coupled means we cut a skin release.
 
     An existing box does NOT lose the add-on on update. MEASURED on a clean
-    Kodi 22.0-BETA1 (21.90.801) bench: RemoveOrphanedDepsRecursively has exactly
+    Kodi 22 pre-release (21.90.801) bench: RemoveOrphanedDepsRecursively has exactly
     two callers, CAddonUnInstallJob::DoWork (AddonInstaller.cpp:1308) and the
     "remove orphaned dependencies" settings action (AddonSystemSettings.cpp:74),
     and neither runs on an update. Belt and braces, CAddonMgr::IsOrphaned

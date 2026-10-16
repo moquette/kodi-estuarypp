@@ -20,8 +20,9 @@ set -euo pipefail
 
 REPO="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 APP="${KODI_APP:-/Applications/Kodi.app}"
-# /Applications/Kodi.app is 22.0.beta1 (measured 2026-08-31); the old
-# ~/Applications/Kodi22.app symlink the estuary-8 bench used no longer exists.
+# The bench is the official Kodi 22.0 RC1 macOS build. On the Mini
+# /Applications/Kodi.app is 21.3 (measured 2026-10-15), so point KODI_APP at a
+# private RC1 copy and KODI_HOME/KODI_LOG at its own HOME there.
 # /Applications/Kodi21.app (the negative rig) also declares bundle id
 # org.xbmc.kodi, so `open -a` is verified below rather than trusted.
 # `ps -o comm=` always reports the PHYSICAL path, so the bundle check in
